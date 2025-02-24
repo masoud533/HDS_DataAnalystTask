@@ -21,7 +21,7 @@ WHERE substr(order_date, -4) = '2016'
 GROUP BY C.customer_id, C.first_name, C.last_name
 ORDER BY countOrders DESC;
 
--- answer two and four
+-- answer four
 SELECT
     C.customer_id AS costumerID,
     C.first_name AS firstName,
@@ -35,8 +35,7 @@ WHERE substr(order_date, -4) = '2016'
 GROUP BY C.customer_id, C.first_name, C.last_name
 HAVING COUNT(o.order_id) = 2;
 
--- answer two and five
-
+-- answer five
 
 SELECT customer_id,
        first_name,
@@ -57,4 +56,5 @@ FROM (
     JOIN products p ON oi.product_id = p.product_id
     JOIN Customers C on C.customer_id = o.customer_id
 )
-WHERE rank_order = 2;
+WHERE rank_order = 2
+ORDER BY list_price DESC;
