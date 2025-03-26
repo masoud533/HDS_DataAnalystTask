@@ -55,6 +55,6 @@ FROM (
     JOIN Order_items oi ON o.order_id = oi.order_id
     JOIN products p ON oi.product_id = p.product_id
     JOIN Customers C on C.customer_id = o.customer_id
-)
+) Rank
 WHERE rank_order = 2
 ORDER BY list_price DESC;
